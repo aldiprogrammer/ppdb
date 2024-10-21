@@ -84,6 +84,7 @@
                   <th>Kode role</th>
                   <th>Uerename</th>
                   <th>Role</th>
+                  <th>Date</th>
                   <th>Opsi</th>
                 </tr>
               </thead>
@@ -102,6 +103,9 @@
                       echo $rl['role'];
                       ?>
                     </td>
+
+
+                    <td><?= $data['date'] ?></td>
 
                     <td>
 
@@ -212,6 +216,7 @@
               <th>Kode role</th>
               <th>Uerename</th>
               <th>Role</th>
+              <th>Date</th>
               <th>Opsi</th>
             </tr>
           </tfoot>

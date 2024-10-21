@@ -6,7 +6,7 @@
             <div class="col-lg-8 col-xl-7 col-xxl-6">
                 <div class="my-5 text-center text-xl-start">
                     <h1 class="display-5 fw-bolder text-white mb-2">Selamat Datang di PPDB</h1>
-                    <p class="lead fw-normal text-white-50 mb-4">Daftar dengan mudah dan cepat dengna PPDB Online SDN 056639 JASA MAKMUR </p>
+                    <p class="lead fw-normal text-white-50 mb-4">Daftar dengan mudah dan cepat dengan PPDB Online SDN 056639 JASA MAKMUR </p>
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                         <a class="btn btn-primary btn-lg px-4 me-sm-3 fw-bold" href="<?= base_url('app/register') ?>"><i class="fas fa-user"></i> DAFTAR SEKARANG</a>
                         <!--  <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a> -->
@@ -76,7 +76,7 @@
             <div class="col-lg-8 col-xl-6">
                 <div class="text-center">
                     <h2 class="fw-bolder">Galery</h2>
-                    <p class="lead fw-normal text-muted mb-5">Dokumentasi siswa-siswi saat mengikuti perlmobaan pramuka kabupaten langkat.</p>
+                    <p class="lead fw-normal text-muted mb-5">Dokumentasi siswa-siswi saat mengikuti perlombaan pramuka kabupaten langkat.</p>
                 </div>
             </div>
         </div>

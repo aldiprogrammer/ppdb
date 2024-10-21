@@ -28,39 +28,59 @@
                                     </div>
                                     <div class="form-group mt-3">
                                         <label>Password</label> 
-                                        <input type="password" name="pass" class="form-control" required>
+                                        <input type="password" name="pass" class="form-control" required id="myInput">
                                     </div>
+
+                                    <input type="checkbox" class="mt-3" onclick="myFunction()"> Show Password
 
                                     <div class="form-group mt-5">
                                         <button class="btn btn-primary w-100 rounded-pill">Login</button>
                                     </div>
 
-                                    <div class="mt-3"> <small class="mt-3">Masukan username dan password anda dengan baik dan benar</small></div>
                                     <div>
-                                        <small>
-                                            Apakah anda sudah mepunyai akun ? 
-                                        </small>
-                                    </div>
 
-                                    <div class="text-center my-4" >
-                                        <a href="<?= base_url('app/register') ?>" style="text-decoration: none;">Register now</a>  
+                                        <div class="mt-3"> <small class="mt-3">Masukan username dan password anda dengan baik dan benar</small></div>
+                                        <div>
+                                            <small>
+                                                Apakah anda sudah mepunyai akun ? 
+                                            </small>
+                                        </div>
 
-                                    </div>
+                                        <div class="text-center my-4" >
+                                            <a href="<?= base_url('app/register') ?>" style="text-decoration: none;">Register now</a> | 
+                                            <a href="<?= base_url('app/lupapassword') ?>" style="text-decoration: none;">Forget  password</a> 
 
-                                </form>
+                                        </div>
+
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col sm-6  mb-5 h-100">
-
-                        <img class="img-fluid rounded-3" src="<?= base_url('assetsuser/img/drawlogin.png') ?>" alt="..." />
-                        <p class="mb-0 text-center">Anda hanya dapat login dengan username dan password yang sudah anda daftarkan disistem kami</p>
-                    </div>
-
+                    </form>
                 </div>
+
+                <div class="col sm-6  mb-5 h-100">
+                    <img class="img-fluid rounded-3" src="<?= base_url('assetsuser/img/drawlogin.png') ?>" alt="..." />
+                    <p class="mb-0 text-center">Anda hanya dapat login dengan username dan password yang sudah anda daftarkan disistem kami</p>
+                </div>
+
             </div>
         </div>
-    </section>
+    </form>
+</div>
+</section>
+
+<script>
+
+    function myFunction() {
+      var x = document.getElementById("myInput");
+      if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
 
 
 

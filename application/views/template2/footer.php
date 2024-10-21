@@ -26,19 +26,20 @@
     $("#prov").change(function(){
         var value = $("#prov").val();
         // alert(value)
-        var url = "<?= base_url('admin/get_kab?id=') ?>"+value;
+
+        var url = "<?= base_url('app/get_kab?id=') ?>"+value;
         $("#kab").load(url);
     });
 
     $("#kab").change(function(){
         var value = $("#kab").val();
-        var url = "<?= base_url('admin/get_kec?id=') ?>"+value;
+        var url = "<?= base_url('app/get_kec?id=') ?>"+value;
         $("#kec").load(url);
     });
 
     $("#kec").change(function(){
         var value = $("#kec").val();
-        var url = "<?= base_url('admin/get_kel?id=') ?>"+value;
+        var url = "<?= base_url('app/get_kel?id=') ?>"+value;
         $("#kel").load(url);
     });
 

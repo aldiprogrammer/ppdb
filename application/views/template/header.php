@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin-MMS</title>
+  <title>Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -42,14 +42,14 @@
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini">
   <div class="wrapper">
 
     <header class="main-header">
       <!-- Logo -->
       <a href="index2.html" class="logo">
 
-        <span class="logo-lg"><b>Admin - </b>PPDB</span>
+        <span class="logo-lg"><b>Admin</b></span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
@@ -67,28 +67,7 @@
             <!-- Tasks: style can be found in dropdown.less -->
 
             <!-- User Account: style can be found in dropdown.less -->
-            <li class="dropdown user user-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="<?= base_url('assets/') ?>dist/img/caleg.png" class="user-image" alt="User Image">
-                <span class="hidden-xs">Admin</span>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- User image -->
-                <li class="user-header">
-                  <img src="<?= base_url('assets/') ?>dist/img/caleg.png" class="img-circle" alt="User Image">
-                  <!-- Menu Footer-->
-                  <li class="user-footer">
-
-                    <div class="pull-right">
-
-                      <a href="<?= base_url('login/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
-
-
-
-                    </div>
-                  </li>
-                </ul>
-              </li>
+           
               <!-- Control Sidebar Toggle Button -->
               <!-- <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
@@ -102,35 +81,24 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
-          <div class="user-panel">
-            <div class="pull-left image">
-              <img src="<?= base_url('assets/') ?>dist/img/caleg.png" class="img-circle" alt="User Image">
-            </div>
-            <div class="pull-left info">
-              <p><!-- <?= ucfirst($this->session->username) ?> --></p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-          </div>
+          
           <!-- search form -->
-          <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
+          
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">MAIN NAVIGATION</li>
+            
 
             <li><a href="<?= base_url('admin/') ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li><a href="<?= base_url('admin/data_user') ?>"><i class="fa fa-clock"></i> <span>Data user</span></a></li>
-            <li><a href="<?= base_url('admin/calon_siswa') ?>"><i class="fa fa-clock"></i> <span>Calon siswa</span></a></li>
-            <li><a href="<?= base_url('admin/data_admin') ?>"><i class="fa fa-clock"></i> <span>Data admin</span></a></li>
-            <li><a href="<?= base_url('admin/data_role') ?>"><i class="fa fa-clock"></i> <span>Data role</span></a></li>
+            <li><a href="<?= base_url('admin/calon_siswa') ?>"><i class="fa fa-user"></i> <span>Calon siswa</span></a></li>
+            <li><a href="<?= base_url('admin/data_siswa') ?>"><i class="fa fa-users"></i> <span>Data siswa</span></a></li>
+            <li><a href="<?= base_url('admin/provinsi') ?>"><i class="fa fa-map-pin"></i> <span>Data Provinsi</span></a></li>
+            <li><a href="<?= base_url('admin/kabupaten') ?>"><i class="fa fa-map"></i> <span>Data Kabupaten</span></a></li>
+            <li><a href="<?= base_url('admin/kecamatan') ?>"><i class="fa fa-location-dot"></i> <span>Data Kecamatan</span></a></li>
+            <li><a href="<?= base_url('admin/kelurahan') ?>"><i class="fa fa-location-dot"></i> <span>Data Kelurahan</span></a></li>
+            <li><a href="<?= base_url('admin/data_admin') ?>"><i class="fa fa-user-secret"></i> <span>Data admin</span></a></li>
+            <li><a href="<?= base_url('login/logout') ?>"><i class="fa fa-clock"></i> <span>Keluar</span></a></li>
 
             
 

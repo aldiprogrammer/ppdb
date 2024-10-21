@@ -94,7 +94,7 @@
 
 
 
-
+    <h3>Selamat datang di halaman admin PPDB SDN 056639 Jasa Makmur</h3>
     <!-- Calendar -->
     <div class="box box-solid bg-green-gradient">
       <div class="box-header">
@@ -135,6 +135,10 @@
 
       </section>
       <!-- right col -->
+      
+     <div class='col-lg-4'>
+         <img src="<?= base_url('assets/ppdb.png') ?>" class="img-fluid" alt="...">
+     </div> 
     </div>
     <!-- /.row (main row) -->
 

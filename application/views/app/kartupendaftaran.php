@@ -13,8 +13,8 @@
     <br/>
     <br />
     <div>
-     <!--  <img src="<?= base_url('assets/berkas/') ?><?= $berkas['foto'] ?>" /> -->
-     <table border="0">
+       <!--  <img src="<?= base_url('assets/berkas/') ?><?= $berkas['foto'] ?>" /> -->
+       <table border="0">
         <tr>
             <td style="width: 200px;">Nama </td>
             <td>: </td>
@@ -110,38 +110,58 @@
         <tr>
             <td style="width: 200px;">Nama ayah</td>
             <td>: </td>
-            <td><?= $siswa['nama_ayah'] ?></td>
+            <td><?= $ortu['nama_ayah'] ?></td>
         </tr>
 
         <tr>
             <td style="width: 200px;">Nama ibu</td>
             <td>: </td>
-            <td><?= $siswa['nama_ibu'] ?></td>
+            <td><?= $ortu['nama_ibu'] ?></td>
         </tr>
         <tr>
             <td style="width: 200px;">Pekerjaan ayah</td>
             <td>: </td>
-            <td><?= $siswa['pekerjaan_ayah'] ?></td>
+            <td><?= $ortu['pekerjaan_ayah'] ?></td>
         </tr>
         <tr>
             <td style="width: 200px;">Pekerjaan ibu</td>
             <td>: </td>
-            <td><?= $siswa['pekerjaan_ibu'] ?></td>
+            <td><?= $ortu['pekerjaan_ibu'] ?></td>
         </tr>
         <tr>
             <td style="width: 200px;">Alamat orang tua</td>
             <td>: </td>
-            <td><?= $siswa['alamat_orang_tua'] ?></td>
+            <td><?= $ortu['alamat_ortu'] ?></td>
         </tr>
+
+        <tr>
+            <td style="width: 200px;">No hp orang tua</td>
+            <td>: </td>
+            <td><?= $ortu['nohp_ortu'] ?></td>
+        </tr>
+
+
+    </table>
+</div>
+
+<br/>
+<br />
+<div style="background-color: silver; font-weight: bold; text-align: center; ">
+    <label>DATA DIRI WALI</label>
+</div>
+<br/>
+<br />
+<div>
+    <table border="0">
         <tr>
             <td style="width: 200px;">Nama wali</td>
             <td>: </td>
             <td>
-                <?php if($siswa['nama_wali'] == ''){
+                <?php if($wali['nama_wali'] == ''){
                     echo "-";
                 }else{
 
-                    echo $sisswa['nama_wali'];
+                    echo $wali['nama_wali'];
                 }
 
                 ?>
@@ -151,20 +171,29 @@
             <td style="width: 200px;">Alamat wali</td>
             <td>: </td>
             <td>
-                <?php if($siswa['alamat_wali'] == ''){
+                <?php if($wali['alamat_wali'] == ''){
                     echo "-";
                 }else{
 
-                    echo $sisswa['alamat_wali'];
+                    echo $wali['alamat_wali'];
                 }
 
                 ?>
             </td>
         </tr>
         <tr>
-            <td style="width: 200px;">No hp</td>
+            <td style="width: 200px;">No hp wali</td>
             <td>: </td>
-            <td><?= $siswa['no_hp'] ?></td>
+            <td>
+                <?php if($wali['nohp_wali'] == ''){
+                    echo "-";
+                }else{
+
+                    echo $wali['nohp_wali'];
+                }
+
+                ?>
+            </td>
         </tr>
 
     </table>
@@ -199,6 +228,9 @@
 
 
 <br />
+<br />
+<br/>
+
 <br/>
 <table border="0">
     <tr>
@@ -235,22 +267,22 @@
         <td></td>
     </tr>
 
-    <tr>
+   <!--  <tr>
         <td style="width: 200px;"></td>
         <td> </td>
         <td></td>
     </tr>
+-->
 
-
-    <tr>
+   <!--  <tr>
         <td style="width: 200px;"></td>
         <td> </td>
         <td></td>
-    </tr>
+    </tr> -->
     <tr>
         <td style="width: 200px;"></td>
         <td></td>
-        <td style="text-align:center;"><?= $siswa['nama_ayah'] ?></td>
+        <td style="text-align:center;"><?= $ortu['nama_ayah'] ?></td>
     </tr>
 
 </table>

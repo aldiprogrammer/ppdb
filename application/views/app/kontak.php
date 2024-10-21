@@ -24,13 +24,13 @@
                                 <form method="post" action="<?= base_url('app/add_register') ?>">
                                     <div class="form-group mt-3">
                                         <label class="fw-bold">Email</label> 
-                                        <p>sdjasamakmur@gmail.com</p>
+                                        <p>sdn36jasamakmur@gmail.com</p>
 
                                     </div>
                                     <hr />
                                     <div class="form-group mt-3">
                                         <label class="fw-bold">Nomor Telp</label> 
-                                        <p>+628123454556</p>
+                                        <p>+6285361575589</p>
                                     </div>
                                     <hr />
                                     <div class="form-group mt-3">

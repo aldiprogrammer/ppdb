@@ -66,7 +66,7 @@
                     <th>No</th>
                     <th>Kode role</th>
                     <th>Role</th>
-
+                    <th>Date</th>
                     <th>Opsi</th>
                   </tr>
                 </thead>
@@ -79,7 +79,7 @@
                         <?= $data['kode_role'] ?>
                       </td>
                       <td><?= $data['role'] ?></td>
-
+                      <td><?= $data['date'] ?></td>
                       <td>
 
                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalhapus<?= $data['id'] ?>">Hapus</button>
@@ -167,6 +167,7 @@
                  <th>No</th>
                  <th>Kode role</th>
                  <th>Role</th>
+                 <th>Date</th>
                  <th>Opsi</th>
                </tr>
              </tfoot>

@@ -40,6 +40,10 @@
         <div class="col-lg-12">
           <h4 class="text-center mb-5">Data Diri Siswa</h4>
 
+          <?php 
+          if($siswa == true){ ?>
+            <input type="hidden" name="kode" value="<?= $siswa['kode_pendaftaran'] ?>">
+          <?php } ?>
 
           <?php 
           if($siswa == true){
@@ -76,7 +80,7 @@
             echo "<li>Data siswa sudah terisi</li>";
           }
 
-          if($siswa['nama_ayah'] != false){
+          if($ortu['nama_ayah'] != false){
 
             echo "<li>Data orang tua sudah terisi</li>";
           }
@@ -271,29 +275,34 @@
                       </center>
                     </form>
                   <?php }elseif($this->input->get('slide') == 2){ ?>
+
+                    <?php 
+                    $kode = $this->db->get_where('tbl_siswa', ['kode_user' => $siswa['kode_user']])->row_array();
+                    ?>
                     <h4 class="text-center mb-3">Data Diri Orang Tua</h4>
 
                     <form method="post" action="<?= base_url('app/add_slide2') ?>">
+                      <input type="hidden" name="kode" value="<?= $kode['kode_pendaftaran'] ?>">
                       <div class="row gx-5 mt-5">
                         <div class="col-sm-6 mb-3">
                           <div class="card border-primary shadow">
                             <div class="card-body">
                               <div class="form-group mt-3">
                                 <label>Nama ayah</label>
-                                <input type="text" name="nama_ayah" value="<?= $siswa == true ? $siswa['nama_ayah'] : '' ?>" class="form-control" required>
+                                <input type="text" name="nama_ayah" value="<?= $ortu == true ? $ortu['nama_ayah'] : '' ?>" class="form-control" required>
                               </div>
                               <div class="form-group mt-3">
                                 <label>Nama ibu</label>
-                                <input type="text" name="nama_ibu" class="form-control" value="<?= $siswa == true ? $siswa['nama_ibu'] : '' ?>" required>
+                                <input type="text" name="nama_ibu" class="form-control" value="<?= $ortu == true ? $ortu['nama_ibu'] : '' ?>" required>
                               </div>
 
                               <div class="form-group mt-3">
                                 <label>Pekerjaan ayah</label>
                                 <select class="form-control" name="pekerjaan_ayah" >
                                   <?php 
-                                  if($siswa == true){
+                                  if($ortu == true){
                                    ?>
-                                   <option><?=  $siswa['pekerjaan_ayah'] ?></option>
+                                   <option><?=  $ortu['pekerjaan_ayah'] ?></option>
                                  <?php }else{ 
 
                                  } ?>
@@ -311,9 +320,9 @@
                               <label>Pekerjaan ibu</label>
                               <select class="form-control" name="pekerjaan_ibu" >
                                 <?php 
-                                if($siswa == true){
+                                if($ortu == true){
                                  ?>
-                                 <option><?=  $siswa['pekerjaan_ibu'] ?></option>
+                                 <option><?=  $ortu['pekerjaan_ibu'] ?></option>
                                <?php }else{ 
 
                                } ?>
@@ -335,9 +344,9 @@
                         <div class="card-body">
                           <div class="form-group mt-3">
                             <label>Alamat orang tua</label>
-                            <input type="text" name="alamat_orang_tua" value="<?= $siswa == true ? $siswa['alamat_orang_tua'] : '' ?>"  class="form-control" required>
+                            <input type="text" name="alamat_orang_tua" value="<?= $ortu == true ? $ortu['alamat_ortu'] : '' ?>"  class="form-control" required>
                           </div>
-                          <div class="form-group mt-3">
+                          <!-- <div class="form-group mt-3">
                             <label>Nama wali</label>
                             <input type="text" name="nama_wali" value="<?= $siswa == true ? $siswa['nama_wali'] : '' ?>"  class="form-control">
                           </div>
@@ -346,127 +355,194 @@
                             <label>Alamat wali</label>
                             <input type="text" name="alamat_wali" class="form-control" value="<?= $siswa == true ? $siswa['alamat_wali'] : '' ?>" >
                           </div>
-
-                          <div class="form-group mt-3">
-                            <label>No hp</label>
-                            <input type="number" name="no_hp" class="form-control" required value="<?= $siswa == true ? $siswa['no_hp'] : '' ?>" >
-                          </div>
-
+                        -->
+                        <div class="form-group mt-3">
+                          <label>No hp orang tua</label>
+                          <input type="number" name="no_hp" class="form-control" required value="<?= $ortu == true ? $ortu['nohp_ortu'] : '' ?>" >
                         </div>
-                      </div>
 
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group mt-3">
+                    <center>
+                      <?php 
+                      if($ortu == true){
+                       ?>
+                       <a href="<?= base_url('app/ppdb') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Kembali</a>
+                       <button type="submit" class="btn btn-primary rounded-pill mt-4">Update</button>
+                       <a href="<?= base_url('app/ppdb?slide=3') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Selanjutnya</a>
+                     <?php }else{ ?>
+
+                      <button type="submit" class="btn btn-primary rounded-pill mt-3">Selanjutnya</button>
+                    <?php } ?>
+
+                  </center>
+                </div>
+
+              </form>
+
+            </div>
+
+          <?php }elseif($this->input->get('slide') == 3){ ?>
+
+            <?php 
+            $kode = $this->db->get_where('tbl_siswa', ['kode_user' => $siswa['kode_user']])->row_array();
+            ?>
+            <h4 class="text-center mb-3">Data Diri Wali</h4>
+
+            
+
+            <form method="post" action="<?= base_url('app/add_slide3') ?>">
+              <input type="hidden" name="kode" value="<?= $kode['kode_pendaftaran'] ?>">
+              <div class="row gx-5 mt-2">
+               <div class="col-sm-3 mb-3">
+               </div>
+               <div class="col-sm-6 mb-3">
+                 <div class="alert alert-primary" role="alert">
+                  <center>
+                    <small class="text-center">Klik selanjutnya jika calon siswa tidak ada wali</small>
+                  </center>
+                </div>
+                <div class="card border-primary shadow">
+                  <div class="card-body">
+                    <div class="form-group mt-3">
+                      <label>Nama wali</label>
+                      <input type="text" name="nama_wali" value="<?= $wali == true ? $wali['nama_wali'] : '' ?>"  class="form-control">
                     </div>
 
                     <div class="form-group mt-3">
-                      <center>
-                        <?php 
-                        if($siswa['nama_ayah'] == true){
-                         ?>
-                         <a href="<?= base_url('app/ppdb') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Kembali</a>
-                         <button type="submit" class="btn btn-primary rounded-pill mt-4">Update</button>
-                         <a href="<?= base_url('app/ppdb?slide=3') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Selanjutnya</a>
-                       <?php }else{ ?>
+                      <label>Alamat wali</label>
+                      <input type="text" name="alamat_wali" class="form-control" value="<?= $wali == true ? $wali['alamat_wali'] : '' ?>" >
+                    </div>
 
-                        <button type="submit" class="btn btn-primary rounded-pill mt-3">Selanjutnya</button>
-                      <?php } ?>
+                    <div class="form-group mt-3">
+                      <label>No hp wali</label>
+                      <input type="number" name="no_hp" class="form-control"  value="<?= $wali == true ? $wali['nohp_wali'] : '' ?>" >
+                    </div>
 
-                    </center>
                   </div>
+                </div>
 
-                </form>
+                <div class="form-group mt-3">
+                  <center>
+                    <?php 
+                    if($wali == true){
+                     ?>
+                     <a href="<?= base_url('app/ppdb?slide=2') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Kembali</a>
+                     <button type="submit" class="btn btn-primary rounded-pill mt-4">Update</button>
+                     <a href="<?= base_url('app/ppdb?slide=4') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Selanjutnya</a>
+                   <?php }else{ ?>
 
+                    <button type="submit" class="btn btn-primary rounded-pill mt-3 w-100">Selanjutnya</button>
+                  <?php } ?>
+
+                </center>
               </div>
 
 
-            <?php }elseif($this->input->get('slide') == 3){ ?>
+            </div>
 
-             <div class="row mt-3">
-              <h4 class="text-center mb-5">Upload Berkas Siswa</h4>
 
-              <div class="col-sm-6">
-                <div class="card border-primary">
-                  <div class="card-body">
-                    <?php 
-                    if($berkas == 'false' || $berkas['foto'] == false){
-                     ?>
+            <div class="col-sm-3 mb-3">
+            </div>
 
-                     <small class="text-primary" style="font-style: italic;">Masukan foto calon siswa dengan ukuran 3 x 4 berlatar polos dan berformat JPG, JPEG, dan PNG</small>
-                     <form method="post" action="<?= base_url('app/add_foto') ?>" enctype="multipart/form-data">
+          </form>
 
-                      <input type="file" name="foto" class="form-control" required="">
-                      <button type="submit" class="btn btn-primary rounded-pill w-100 mt-3">Upload</button>
-                    </form>
-                    
-                  <?php }else{ ?>
-
-                   <center>
-                     <img class="img-fluid rounded-3" src="<?= base_url('assets/berkas/') ?><?= $berkas['foto'] ?>" alt="..." style="height: 200px;" />
-                     <h5>Pash Foto</h5>
-                     <small class="fw-bold text-success">Pash foto siswa sudah brhasil diupload</small>
-                   </center>
-
-                 <?php } ?>
-               </div>
-             </div>
-           </div>
-
-           <div class="col-sm-6">
-            <div class="card border-primary">
-              <div class="card-body">
-                <?php 
-                if($berkas == 'false'|| $berkas['kk'] == false){
-                 ?>
-                 <small class="text-primary" style="font-style: italic;">Masukan foto Kartu Keluarga siswa dengan jelas dengan  format JPG, JPEG, dan PNG</small>
-                 <form method="post" action="<?= base_url('app/add_kk') ?>" enctype="multipart/form-data">
-
-                  <input type="file" name="kk" class="form-control" required="">
-                  <button type="submit" class="btn btn-primary rounded-pill w-100 mt-3">Upload</button>
-                </form>
-
-              <?php }else{ ?>
-
-               <center>
-                <img class="img-fluid rounded-3" src="<?= base_url('assets/berkas/') ?><?= $berkas['kk'] ?>" alt="..." style="height: 200px;" />
-                <h5>Kartu Keluarga</h5>
-                <small class="fw-bold text-success">Kartu keluarga siswa sudah brhasil diupload</small>
-              </center>
-
-            <?php } ?>
-          </div>
         </div>
-      </div>
 
-      <div class="col-sm-6 mt-3">
-        <div class="card border-primary">
-          <div class="card-body">
-           <?php 
-           if($berkas == 'false'  || $berkas['akte'] == false){
-             ?>
-             <small class="text-primary" style="font-style: italic;">Masukan foto Akte lahir siswa dengan jelas dengan  format JPG, JPEG, dan PNG</small>
-             <form method="post" action="<?= base_url('app/add_akte') ?>" enctype="multipart/form-data">
-              <input type="file" name="akte" class="form-control" required="">
 
-              <button type="submit" class="btn btn-primary rounded-pill w-100 mt-3">Upload</button>
-            </form>
+      <?php }elseif($this->input->get('slide') == 4){ ?>
 
-          <?php }else{ ?>
-            <center>
-              <img class="img-fluid rounded-3" src="<?= base_url('assets/berkas/') ?><?= $berkas['akte'] ?>" alt="..." style="height: 200px;" />
-              <h5>Akte lahiran</h5>
-              <small class="fw-bold text-success">Akte lahiran siswa sudah brhasil diupload</small>
-            </center>
-          <?php } ?>
-        </div>
-      </div>
+       <div class="row mt-3">
+        <h4 class="text-center mb-5">Upload Berkas Siswa</h4>
+
+        <div class="col-sm-6">
+          <div class="card border-primary">
+            <div class="card-body">
+              <?php 
+              if($berkas == 'false' || $berkas['foto'] == false){
+               ?>
+
+               <small class="text-primary" style="font-style: italic;">Masukan foto calon siswa dengan ukuran 3 x 4 berlatar polos dan berformat JPG, JPEG, dan PNG</small>
+               <form method="post" action="<?= base_url('app/add_foto') ?>" enctype="multipart/form-data">
+
+                <input type="file" name="foto" class="form-control" required="">
+                <button type="submit" class="btn btn-primary rounded-pill w-100 mt-3">Upload</button>
+              </form>
+
+            <?php }else{ ?>
+
+             <center>
+               <img class="img-fluid rounded-3" src="<?= base_url('assets/berkas/') ?><?= $berkas['foto'] ?>" alt="..." style="height: 200px;" />
+               <h5>Pash Foto</h5>
+               <small class="fw-bold text-success">Pash foto siswa sudah brhasil diupload</small>
+             </center>
+
+           <?php } ?>
+         </div>
+       </div>
+     </div>
+
+     <div class="col-sm-6">
+      <div class="card border-primary">
+        <div class="card-body">
+          <?php 
+          if($berkas == 'false'|| $berkas['kk'] == false){
+           ?>
+           <small class="text-primary" style="font-style: italic;">Masukan foto Kartu Keluarga siswa dengan jelas dengan  format JPG, JPEG, dan PNG</small>
+           <form method="post" action="<?= base_url('app/add_kk') ?>" enctype="multipart/form-data">
+
+            <input type="file" name="kk" class="form-control" required="">
+            <button type="submit" class="btn btn-primary rounded-pill w-100 mt-3">Upload</button>
+          </form>
+
+        <?php }else{ ?>
+
+         <center>
+          <img class="img-fluid rounded-3" src="<?= base_url('assets/berkas/') ?><?= $berkas['kk'] ?>" alt="..." style="height: 200px;" />
+          <h5>Kartu Keluarga</h5>
+          <small class="fw-bold text-success">Kartu keluarga siswa sudah brhasil diupload</small>
+        </center>
+
+      <?php } ?>
     </div>
-
-
   </div>
-  <center>
-   <a href="<?= base_url('app/ppdb?slide=2') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Kembali</a>
-   <a href="<?= base_url('app/ppdb?slide=4') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Selanjutnya</a>
- </center>
-<?php  }elseif($this->input->get('slide') == 4){ ?>
+</div>
+
+<div class="col-sm-6 mt-3">
+  <div class="card border-primary">
+    <div class="card-body">
+     <?php 
+     if($berkas == 'false'  || $berkas['akte'] == false){
+       ?>
+       <small class="text-primary" style="font-style: italic;">Masukan foto Akte lahir siswa dengan jelas dengan  format JPG, JPEG, dan PNG</small>
+       <form method="post" action="<?= base_url('app/add_akte') ?>" enctype="multipart/form-data">
+        <input type="file" name="akte" class="form-control" required="">
+
+        <button type="submit" class="btn btn-primary rounded-pill w-100 mt-3">Upload</button>
+      </form>
+
+    <?php }else{ ?>
+      <center>
+        <img class="img-fluid rounded-3" src="<?= base_url('assets/berkas/') ?><?= $berkas['akte'] ?>" alt="..." style="height: 200px;" />
+        <h5>Akte lahiran</h5>
+        <small class="fw-bold text-success">Akte lahiran siswa sudah brhasil diupload</small>
+      </center>
+    <?php } ?>
+  </div>
+</div>
+</div>
+
+
+</div>
+<center>
+  <a href="<?= base_url('app/ppdb?slide=3') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Kembali</a>
+  <a href="<?= base_url('app/ppdb?slide=5') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Selanjutnya</a>
+</center>
+<?php  }elseif($this->input->get('slide') == 5){ ?>
 
  <div class="row mt-3">
 
@@ -523,7 +599,7 @@
                  if($bayar == true){
                    ?>
                    <center>
-                    <img class="img-fluid rounded-3" src="<?= base_url('assets/berkas/') ?><?= $bayar['tf'] ?>" alt="..." style="height: 200px;" />
+                    <img class="img-fluid rounded-3" src="<?= base_url('assets/berkas/') ?><?= $bayar['bukti_pembayaran'] ?>" alt="..." style="height: 200px;" />
                     <h5>Bukti pembayaran</h5>
                     <small class="fw-bold text-success">Bukti pembayaran  siswa sudah brhasil diupload</small>
                   </center>
@@ -542,7 +618,7 @@
           </div>
         </div>
         <center>
-          <a href="<?= base_url('app/ppdb?slide=3') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Kembali</a>
+          <a href="<?= base_url('app/ppdb?slide=4') ?>" class="btn btn-primary rounded-pill mt-4" style="width: 120px">Kembali</a>
         </center>
 
       <?php } ?>

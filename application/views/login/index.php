@@ -180,7 +180,7 @@
 
 
 
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="pass" id="myInput" placeholder="Password">
 
 
 
@@ -190,6 +190,16 @@
 
 					</div>
 
+								<div class='container'>
+
+
+ 							<input type="checkbox" class="mt-3 ml-4 nput100" onclick="myFunction()"> Show Password
+
+
+					</div>
+
+
+						
 
 
 
@@ -320,6 +330,16 @@
 
 	<?php echo "<script>".$this->session->flashdata('message')."</script>"?> 
 
+ <script>
+        function myFunction() {
+          var x = document.getElementById("myInput");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+    </script>
 
 
 

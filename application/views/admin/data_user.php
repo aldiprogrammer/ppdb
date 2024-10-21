@@ -26,6 +26,7 @@
                     <th>Kode user</th>
                     <th>Email</th>
                     <th>Username</th>
+                    <th>Date</th>
                     <th>Opsi</th>
                   </tr>
                 </thead>
@@ -39,6 +40,7 @@
                       </td>
                       <td><?= $data['email'] ?></td>
                       <td><?= $data['username'] ?></td>
+                      <td><?= $data['date'] ?></td>
                       <td>
                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalhapus<?= $data['id'] ?>">Hapus</button>
                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModaledit<?= $data['id'] ?>">Edit</button>
@@ -132,7 +134,7 @@
                   <th>Kode user</th>
                   <th>Email</th>
                   <th>Username</th>
-
+                  <th>Date</th>
                   <th>Opsi</th>
                 </tr>
               </tfoot>

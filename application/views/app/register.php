@@ -33,18 +33,22 @@
                                     </div>
                                     <div class="form-group mt-3">
                                         <label>Password</label> 
-                                        <input type="password" name="pass" class="form-control" required>
+                                        <input type="password" name="pass" class="form-control" required id="myInput">
                                     </div>
 
                                     <div class="form-group mt-3">
                                         <label>Confirm password</label> 
-                                        <input type="password" name="pass2" class="form-control" required>
+                                        <input type="password" name="pass2" class="form-control" required id="myInput2">
 
                                     </div>
+                                      <input type="checkbox" class="mt-3" onclick="myFunction()"> Show Password
 
                                     <div class="form-group mt-5">
                                         <button class="btn btn-primary w-100 rounded-pill">Register</button>
                                     </div>
+
+
+
 
                                     <div class="mt-3"> <small class="mt-3">Masukan username dan password anda dengan baik dan benar</small></div>
                                     <div>
@@ -72,6 +76,29 @@
             </div>
         </div>
     </section>
+
+
+     <script>
+        
+        function myFunction() {
+          var x = document.getElementById("myInput");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+
+          var x = document.getElementById("myInput2");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+
+
+    </script>
+
 
 
 
